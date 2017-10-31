@@ -11,7 +11,7 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+		<main id="main" class="site-main">
 
 		<?php
 		while ( have_posts() ) : the_post();
@@ -22,7 +22,9 @@ get_header(); ?>
 				echo sharing_display();
 			}
 
-			siteorigin_corp_the_post_navigation();
+			if ( siteorigin_setting( 'navigation_post' ) ) :
+				siteorigin_corp_the_post_navigation();
+			endif;
 
 			siteorigin_corp_author_box();		
 
